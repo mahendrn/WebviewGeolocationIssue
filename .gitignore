@@ -1,0 +1,42 @@
+node_modules
+
+# OS X
+.DS_Store
+
+# Gradle
+build/
+.gradle
+gradle.properties
+
+# Android Studio
+.idea
+*.iml
+local.properties
+
+# Generated files
+buildSrc/userHome/
+reports/
+google-java-format-*.jar
+
+
+# Created by https://www.gitignore.io/api/ruby
+
+### Ruby ###
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+## Environment normalization:
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
+
+# End of https://www.gitignore.io/api/ruby

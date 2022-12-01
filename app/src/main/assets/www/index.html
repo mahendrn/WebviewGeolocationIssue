@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script>
+
+      function success(pos) {
+        const crd = pos.coords;
+        document.getElementById("result").innerHTML = "Latitude : " + crd.latitude + "\n Longitude: "+ crd.longitude;
+      }
+
+      function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+        document.getElementById("result").innerHTML = "ERROR("+err.code+"):"+err.message;
+      }
+
+      function getLocation(){
+          var enableHighAccuracyValue = document.getElementById("enableHighAccuracy").value
+          var timeoutValue = document.getElementById("timeout").value
+          var maximumAgeValue = document.getElementById("maximumAge").value
+          const options= {
+            enableHighAccuracy: enableHighAccuracyValue,
+            timeout: timeoutValue,
+            maximumAge: maximumAgeValue
+          };
+          navigator.geolocation.getCurrentPosition(success, error, options);
+          document.getElementById("result").innerHTML = "Getting Current Location....";
+      }
+
+    </script>
+  </head>
+  <body>
+        <button id="getLocation" onclick="getLocation()">navigator.geolocation.getCurrentPosition()</button>
+        <p>Options</p>
+        <form action="" method="POST">
+            <label for="enableHighAccuracy">enableHighAccuracy:</label>
+            <input type="text" id="enableHighAccuracy" name="enableHighAccuracy" value="false"> <br>
+            <label for="timeout">timeout:</label>
+            <input type="text" id="timeout" name="timeout" value="5000"><br>
+            <label for="maximumAge">maximumAge:</label>
+            <input type="text" id="maximumAge" name="maximumAge" value="0"><br>
+
+        </form>
+        <p id="result"></p>
+  </body>
+</html>
